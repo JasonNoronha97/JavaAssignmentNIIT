@@ -5,21 +5,28 @@ import java.io.InputStreamReader;
 public class Exercise1_3 {
 
 	public static boolean checkTriplets(int[] arr) {
+		boolean result = false;
+		int b, c;
 		for (int i = 0; i < arr.length; i++) {
-			
-				if (arr[i] == arr[i+1] && arr[i] == arr[i+2]) {
+			b = i + 1;
+			c = i + 2;
+			if (b < arr.length && c < arr.length) {
+				if (arr[i] == arr[b] && arr[i] == arr[c]) {
 					return true;
+				}
 			}
-			break;
 		}
-		return false;
+		return result;
 	}
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int[] arr = new int[5];
+		System.out.println("ENTER THE NUMBER OF DIGITS:");
+		int num = Integer.parseInt(br.readLine());
+		
+		int[] arr = new int[num];
 
 		System.out.println("Enter the numbers: ");
 
@@ -30,6 +37,6 @@ public class Exercise1_3 {
 		if (checkTriplets(arr)) {
 			System.out.println("There are triplets");
 		} else
-			System.out.println("No triplets");
+			System.out.println("There are no triplets");
 	}
 }
